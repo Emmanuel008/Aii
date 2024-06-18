@@ -10,6 +10,12 @@ const Sidebar = () => {
   const {dispatch} = useUserContext();
   const navigate = useNavigate();
   
+  const handleClick = async ()=>{
+    await dispatch({
+      type: "LOGOUT",
+    });
+    navigate('/');
+  }
   return (
     <aside className="main-sidebar sidebar-light-primary elevation-1">
       {/* Brand Logo */}
@@ -72,7 +78,7 @@ const Sidebar = () => {
               </li>
             )}
             <li className="nav-item mt-2">
-              <Link to="/" className="nav-link" >
+              <Link className="nav-link" onClick={handleClick}>
                 <i className="nav-icon fa fa-cogs" />
                 <p className="ml-2">Log out</p>
               </Link>

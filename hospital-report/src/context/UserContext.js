@@ -20,7 +20,7 @@ export const userReducer = (state, action) => {
         user: action.payload,
       };
     case "LOGOUT":
-      return { user: null };
+      return { user: {} };
     default:
       return state;
   }
