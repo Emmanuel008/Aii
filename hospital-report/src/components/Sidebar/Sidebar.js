@@ -46,15 +46,7 @@ const Sidebar = () => {
               </li>
             )}
 
-            <li className="nav-item mt-2">
-              <Link className="nav-link">
-                <i className="nav-icon fa fa-medkit" />
-                <p className="ml-2">
-                  Patients
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </Link>
-              <ul className="nav nav-treeview">
+            
                 <li class="nav-item">
                   <Link to="/main/patient" class="nav-link">
                     <i class="fa fa-users nav-icon"></i>
@@ -67,8 +59,7 @@ const Sidebar = () => {
                     <p>Admited Patients</p>
                   </Link>
                 </li>
-              </ul>
-            </li>
+             
             {user.user.user.user_type === "admin" && (
               <li className="nav-item mt-2">
                 <Link to="/main/report" className="nav-link">

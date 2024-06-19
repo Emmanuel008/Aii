@@ -116,14 +116,11 @@ const Report = () => {
         const data = response.data;
         console.log(data)
 
-        const filteredUsers = data.filter(
-          (user) => user.report_name === Data[0].report_name
-        );
         dispatch({
           type: "GETREPORTS",
-          payload: filteredUsers,
+          payload: data,
         });
-        setTableData(filteredUsers);
+        setTableData(data);
       } catch (error) {
         // toast.error(error.response.data, toastOptions)
         console.log("Error fetching data:", error);

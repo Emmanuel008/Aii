@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const ReportData = () => {
     const navigate = useNavigate();
   const report = useReportContext();
+  console.log(report)
   const {dispatch} = useReportContext();
   const [values, setValues] = useState({
     date: "",
@@ -47,14 +48,14 @@ const ReportData = () => {
            industrial_food,
            rights_for_service,
            have_food,
-           report_id: report.report.report.report_id, 
-           date: report.report.report.report_date  
+           report_id: report.report.report_id, 
+           date: report.report.report_date  
          })
          .then((res) => {
            toast.success(res.data.message, toastOptions);
            dispatch({
              type: "GETREPORTDATA",
-             payload: res.data,
+             payload: res.data.reportData,
            });
            setValues({
              date: "",
@@ -70,7 +71,7 @@ const ReportData = () => {
          }); 
     } catch (error) {
         console.log(error)
-      toast.error(error.response.data.message, toastOptions);
+      // toast.error(error.response.data.message, toastOptions);
     }
   };
 

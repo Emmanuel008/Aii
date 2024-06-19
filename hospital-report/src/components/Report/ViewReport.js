@@ -12,14 +12,13 @@ const ViewReport = () => {
   const reportData = useReportContext();
   const {dispatch} = useReportContext();
 
-  console.log(reportData.report.report)
-  console.log(reportData.reportData.report);
+  console.log(reportData.reportData)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const endpoints = ["patientdata1", "patientdata2", "patientdata3"];
-        const reportDate = reportData.report.report.report_date;
+        const reportDate = reportData.reports[0].report_date;
         const responses = await Promise.all(
           endpoints.map((endpoint) =>
             axios.get(`${url}/report/${endpoint}?date=${reportDate}`)
@@ -38,7 +37,7 @@ const ViewReport = () => {
     };
 
     fetchData();
-  }, [dispatch, reportData.report.report.report_date]);
+  }, [dispatch, reportData.report.report_date]);
 
 
   return (
@@ -58,7 +57,7 @@ const ViewReport = () => {
                 </div>
                 <div className="flex justify-center">
                   <h2 className="font-bold uppercase tracking-wide text-2xl mb-2">
-                    Montly Report on Nutrition
+                    Monthly Report on Nutrition
                   </h2>
                 </div>
                 <div className="flex justify-center mb-2">
